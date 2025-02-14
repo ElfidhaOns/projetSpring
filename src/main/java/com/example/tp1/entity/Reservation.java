@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,9 +17,8 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PUBLIC)
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-     int idReservation;
-     Date anneeUniversitaire;
+     String idReservation;
+     LocalDate anneeUniversitaire;
      boolean estValide;
      @ManyToMany
      private List<Etudiant> etudiants;
