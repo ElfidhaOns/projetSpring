@@ -32,4 +32,9 @@ public class UniversiteServiceIMPL implements IuniversiteService {
     public Universite retrieveUniversite(long idUniversite) {
         return universiteRepository.findById(idUniversite).orElse(null);
     }
+
+    @Override
+    public Universite getUniversiteByCapacityBlocEtCapacityFoyer(Long capacityBloc, Long capacityFoyer) {
+        return universiteRepository.findByFoyerBlocsCapaciteBlocAndFoyerCapaciteFoyer( capacityBloc,capacityFoyer);
+    }
 }

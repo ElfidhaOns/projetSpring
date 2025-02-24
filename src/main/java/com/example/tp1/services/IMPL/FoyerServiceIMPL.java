@@ -1,6 +1,7 @@
 package com.example.tp1.services.IMPL;
 
 import com.example.tp1.entity.Foyer;
+import com.example.tp1.entity.TypeChambre;
 import com.example.tp1.repository.FoyerRepository;
 import com.example.tp1.services.interfaces.IfoyerService;
 import lombok.AllArgsConstructor;
@@ -36,5 +37,10 @@ public class FoyerServiceIMPL implements IfoyerService {
     @Override
     public void removeFoyer(long idFoyer) {
 foyerRepository.deleteById(idFoyer);
+    }
+
+    @Override
+    public Foyer getFoyerTypeChambreEtNomBloc(TypeChambre typec, String nom) {
+        return null;
     }
 }

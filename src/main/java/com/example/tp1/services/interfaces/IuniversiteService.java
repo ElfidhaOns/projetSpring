@@ -9,5 +9,5 @@ public interface IuniversiteService {
     Universite addUniversite (Universite u);
     Universite updateUniversite (Universite u);
     Universite retrieveUniversite (long idUniversite);
-
+Universite getUniversiteByCapacityBlocEtCapacityFoyer(Long capacityBloc,Long capacityFoyer);
 }

@@ -5,8 +5,8 @@ import com.example.tp1.repository.BlocRepository;
 import com.example.tp1.services.interfaces.IblocService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class BlocServiceIMPL implements IblocService {
@@ -29,5 +29,10 @@ public class BlocServiceIMPL implements IblocService {
     @Override
     public Bloc retrieveBloc(long idBloc) {
         return blocRepository.findById(idBloc).orElse(null);
+    }
+
+    @Override
+    public List<Bloc> getBlocByNomUniversite(String nom) {
+        return blocRepository.findByFoyerUniversiteNomUniversiteLike(nom);
     }
 }

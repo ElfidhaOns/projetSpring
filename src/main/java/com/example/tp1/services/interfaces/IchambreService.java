@@ -9,5 +9,8 @@ public interface IchambreService {
     Chambre addChambre(Chambre c);
     Chambre updateChambre (Chambre c);
     Chambre retrieveChambre (long idChambre);
+    List<Chambre> getChambreByAddresseUniversite(String ads);
+    Chambre getChambreByCINEtudaintEtNomBloc(Long CIN,String nom);
+
 
 }
