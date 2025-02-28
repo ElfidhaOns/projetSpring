@@ -9,5 +9,6 @@ public interface IblocService {
     Bloc addBloc(Bloc b);
     Bloc updateBloc (Bloc c);
     Bloc retrieveBloc (long idBloc);
+    void deleteBloc (long idBloc);
     List <Bloc> getBlocByNomUniversite(String nom);
 }

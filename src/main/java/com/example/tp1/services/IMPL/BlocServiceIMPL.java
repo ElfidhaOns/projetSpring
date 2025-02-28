@@ -32,6 +32,9 @@ public class BlocServiceIMPL implements IblocService {
     }
 
     @Override
+    public void deleteBloc(long idBloc) {blocRepository.deleteById(idBloc);
+    }
+    @Override
     public List<Bloc> getBlocByNomUniversite(String nom) {
         return blocRepository.findByFoyerUniversiteNomUniversiteLike(nom);
     }

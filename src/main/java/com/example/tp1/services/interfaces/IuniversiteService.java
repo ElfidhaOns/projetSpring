@@ -10,4 +10,6 @@ public interface IuniversiteService {
     Universite updateUniversite (Universite u);
     Universite retrieveUniversite (long idUniversite);
 Universite getUniversiteByCapacityBlocEtCapacityFoyer(Long capacityBloc,Long capacityFoyer);
+    public Universite affecterFoyerAUniversite (long idFoyer, String
+            nomUniversite) ;
 }

@@ -1,5 +1,6 @@
 package com.example.tp1.entity;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
