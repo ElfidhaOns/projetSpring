@@ -2,6 +2,7 @@ package com.example.tp1.services.interfaces;
 
 import com.example.tp1.entity.Bloc;
 import com.example.tp1.entity.Chambre;
+import com.example.tp1.entity.TypeChambre;
 
 import java.util.List;
 
@@ -14,5 +15,6 @@ public interface IchambreService {
     Chambre getChambreByCINEtudaintEtNomBloc(Long CIN,String nom);
 
     Bloc affecterChambresABloc(List<Long> numChambre, long idBloc);
+    List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) ;
 
 }
