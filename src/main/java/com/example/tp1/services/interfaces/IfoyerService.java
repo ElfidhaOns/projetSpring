@@ -13,6 +13,6 @@ public interface IfoyerService {
     Foyer retrieveFoyer (long idFoyer);
     void removeFoyer (long idFoyer);
     Foyer getFoyerTypeChambreEtNomBloc(TypeChambre typec, String nom);
-
+     Foyer ajouterFoyerEtAffecterAUniversite (Foyer foyer, long idUniversite) ;
 
 }

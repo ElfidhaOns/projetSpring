@@ -44,4 +44,8 @@ public class FoyerController {
     public Foyer getFoyerTypeChambreEtNomBloc(@RequestParam TypeChambre typec, @RequestParam String nom) {
         return ifoyerService.getFoyerTypeChambreEtNomBloc(typec, nom);
     }
+@PostMapping("ajouterFoyerEtAffecterAUniversite/{idUniversite}")
+    public Foyer ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer, @PathVariable long idUniversite) {
+        return ifoyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+    }
 }
