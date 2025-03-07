@@ -41,8 +41,12 @@ public class UniversiteController {
         return iuniversiteService.getUniversiteByCapacityBlocEtCapacityFoyer(capacityBloc, capacityFoyer);
     }
     @GetMapping("/affecterFoyerUniversite/{idFoyer}/{nomUniversite}")
-
     public Universite affecterFoyerAUniversite(@PathVariable long idFoyer, @PathVariable String nomUniversite) {
         return iuniversiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
+    }
+
+    @PutMapping("deacffecter/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite( @PathVariable long idUniversite) {
+        return iuniversiteService.desaffecterFoyerAUniversite(idUniversite);
     }
 }

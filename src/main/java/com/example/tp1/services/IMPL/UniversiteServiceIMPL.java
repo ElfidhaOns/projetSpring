@@ -48,4 +48,12 @@ FoyerRepository foyerRepository;
         u.setFoyer(f);
         return universiteRepository.save(u);
     }
+
+    @Override
+    public Universite desaffecterFoyerAUniversite(long idUniversite) {
+       Universite u=universiteRepository.findById(idUniversite).orElse(null);
+        assert u != null;
+        u.setFoyer(null);
+       return universiteRepository.save(u);
+    }
 }

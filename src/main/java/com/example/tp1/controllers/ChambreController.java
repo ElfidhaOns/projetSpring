@@ -1,5 +1,6 @@
 package com.example.tp1.controllers;
 
+import com.example.tp1.entity.Bloc;
 import com.example.tp1.entity.Chambre;
 import com.example.tp1.services.interfaces.IchambreService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,5 +45,9 @@ public class ChambreController {
     @GetMapping("/getChambreByCINEtudaintEtNomBloc/{CIN}/{nom}")
     public Chambre getChambreByCINEtudaintEtNomBloc(@PathVariable Long CIN, @PathVariable String nom) {
         return ichambreService.getChambreByCINEtudaintEtNomBloc(CIN, nom);
+    }
+@PutMapping("affecterChambresABloc/{idBloc}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numChambre,@PathVariable long idBloc) {
+        return ichambreService.affecterChambresABloc(numChambre, idBloc);
     }
 }

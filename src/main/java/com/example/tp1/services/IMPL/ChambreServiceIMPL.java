@@ -1,6 +1,8 @@
 package com.example.tp1.services.IMPL;
 
+import com.example.tp1.entity.Bloc;
 import com.example.tp1.entity.Chambre;
+import com.example.tp1.repository.BlocRepository;
 import com.example.tp1.repository.ChambreRepository;
 import com.example.tp1.services.interfaces.IchambreService;
 import lombok.AllArgsConstructor;
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ChambreServiceIMPL implements IchambreService {
     ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
     @Override
     public List<Chambre> retrieveAllChambres() {
         return chambreRepository.findAll();
@@ -39,6 +42,17 @@ public class ChambreServiceIMPL implements IchambreService {
     @Override
     public Chambre getChambreByCINEtudaintEtNomBloc(Long CIN, String nom) {
         return  chambreRepository.findByReservationsEtudiantsCinAndBlocNomBloc(CIN,nom);
+    }
+
+    @Override
+    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
+        List<Chambre> chambres = chambreRepository.findByNumeroChambreIn(numChambre);
+        Bloc bloc = blocRepository.findById(idBloc).orElse(null);
+        for (Chambre c : chambres) {
+            c.setBloc(bloc);
+            chambreRepository.save(c);
+        }
+        return bloc;
     }
 
 

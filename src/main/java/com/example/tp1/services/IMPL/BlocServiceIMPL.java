@@ -1,6 +1,7 @@
 package com.example.tp1.services.IMPL;
 
 import com.example.tp1.entity.Bloc;
+import com.example.tp1.entity.Chambre;
 import com.example.tp1.repository.BlocRepository;
 import com.example.tp1.services.interfaces.IblocService;
 import lombok.AllArgsConstructor;
@@ -38,4 +39,7 @@ public class BlocServiceIMPL implements IblocService {
     public List<Bloc> getBlocByNomUniversite(String nom) {
         return blocRepository.findByFoyerUniversiteNomUniversiteLike(nom);
     }
+
+
+    
 }
