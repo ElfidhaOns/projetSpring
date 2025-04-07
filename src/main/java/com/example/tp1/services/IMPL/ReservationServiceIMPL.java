@@ -80,10 +80,11 @@ public class ReservationServiceIMPL implements IreservationService {
         throw new RuntimeException("Aucune réservation valide trouvée pour l'étudiant avec le CIN " + cinEtudiant);
     }
 
-//    @Override
-//    public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(Date anneeUniversitaire, String nomUniversite) {
-//        return reservationRepository.findByAnneeUniversitaireAndChambreBlocFoyerUniversiteNomUniversite(anneeUniversitaire, nomUniversite);
-//    }
+    @Override
+    public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(LocalDate anneeUniversite, String nomUniversite) {
+        return reservationRepository.findByAnneeUniversitaireAndNomUniversite(anneeUniversite, nomUniversite);
+
+    }
 
 
 }

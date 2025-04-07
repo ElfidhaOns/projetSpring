@@ -5,6 +5,7 @@ import com.example.tp1.services.interfaces.IreservationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -38,11 +39,11 @@ public class ReservationController {
     public Reservation annulerReservation(@PathVariable long cinEtudiant) {
         return ireservationService.annulerReservation(cinEtudiant);
     }
-//    @GetMapping("/parAnneeEtUniversite")
-//    public List<Reservation> getReservationParAnneeEtUniversite(@RequestParam Date anneeUniversitaire,
-//                                                                @RequestParam String nomUniversite) {
-//        return ireservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversitaire, nomUniversite);
-//    }
+    @GetMapping("/parAnneeEtUniversite")
+    public List<Reservation> getReservationParAnneeEtUniversite(@RequestParam LocalDate anneeUniversitaire,
+                                                                @RequestParam String nomUniversite) {
+        return ireservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversitaire, nomUniversite);
+    }
 
 
 }

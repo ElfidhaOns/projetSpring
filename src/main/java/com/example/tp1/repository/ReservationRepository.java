@@ -1,13 +1,25 @@
 package com.example.tp1.repository;
 
 import com.example.tp1.entity.Reservation;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation,String> {
-//    public List<Reservation> findByAnneeUniversitaireAnd(Date anneeUniversitaire, String nomUniversite);
+
+   @Query("SELECT r FROM Reservation r,Chambre  c " +
+           "JOIN c.bloc b " +
+           "JOIN b.foyer f " +
+           "JOIN f.universite u " +
+           "WHERE r.anneeUniversitaire = :anneeUniversitaire " +
+           "AND u.nomUniversite = :nomUniversite")
+   List<Reservation> findByAnneeUniversitaireAndNomUniversite
+           (@Param("anneeUniversitaire") LocalDate anneeUniversitaire,
+            @Param("nomUniversite") String nomUniversite);
 
 }

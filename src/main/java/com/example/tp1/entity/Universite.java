@@ -16,6 +16,7 @@ public class Universite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      Long idUniversite;
+    @Column(unique = true)
      String nomUniversite;
      String adresse;
     @OneToOne()
