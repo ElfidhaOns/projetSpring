@@ -5,6 +5,7 @@ import com.example.tp1.services.interfaces.IreservationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -28,4 +29,20 @@ public class ReservationController {
     public Reservation retrieveReservation(@PathVariable String idReservation) {
         return ireservationService.retrieveReservation(idReservation);
     }
+    @PostMapping("/ajouterReservation/{idChambre}/{cinEtudiant}")
+
+    public Reservation ajouterReservation(@PathVariable long idChambre, @PathVariable long cinEtudiant) {
+        return ireservationService.ajouterReservation(idChambre, cinEtudiant);
+    }
+    @PutMapping("/annulerReservation/{cinEtudiant}")
+    public Reservation annulerReservation(@PathVariable long cinEtudiant) {
+        return ireservationService.annulerReservation(cinEtudiant);
+    }
+//    @GetMapping("/parAnneeEtUniversite")
+//    public List<Reservation> getReservationParAnneeEtUniversite(@RequestParam Date anneeUniversitaire,
+//                                                                @RequestParam String nomUniversite) {
+//        return ireservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversitaire, nomUniversite);
+//    }
+
+
 }

@@ -7,6 +7,8 @@ import com.example.tp1.services.interfaces.IchambreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,5 +57,19 @@ public class ChambreController {
     @PutMapping("getChambresParBlocEtType/{idBloc}/{typeC}")
     public List<Chambre> getChambresParBlocEtType(@PathVariable long idBloc,@PathVariable TypeChambre typeC) {
         return ichambreService.getChambresParBlocEtType(idBloc, typeC);
+    }
+@PutMapping("findByBlocIdBlocAndTypeC2/{idBloc}/{typeC}")
+    public List<Chambre> findByBlocIdBlocAndTypeC(@PathVariable long idBloc,@PathVariable TypeChambre typeC) {
+        return ichambreService.findByBlocIdBlocAndTypeC(idBloc, typeC);
+    }
+
+    @PutMapping("getChambresParNomUniversite/{nomUniversite}")
+
+    public List<Chambre> getChambresParNomUniversite(@PathVariable String nomUniversite) {
+        return ichambreService.getChambresParNomUniversite(nomUniversite);
+    }
+    @PutMapping("getChambresParNomUniversite2/{nomUniversite}")
+    public List<Chambre> getChambresParNomUniversite2(@PathVariable String nomUniversite) {
+        return ichambreService.getChambresParNomUniversite2(nomUniversite);
     }
 }

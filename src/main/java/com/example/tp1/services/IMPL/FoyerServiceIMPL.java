@@ -52,7 +52,7 @@ foyerRepository.deleteById(idFoyer);
     }
 
     @Override
-    @Transactional
+    @Transactional //njmo nahiw .save car transc va faire ca
     public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite) {
         foyerRepository.save(foyer);//ajout foyer+blocs sans affectation
         for(Bloc b :foyer.getBlocs()){

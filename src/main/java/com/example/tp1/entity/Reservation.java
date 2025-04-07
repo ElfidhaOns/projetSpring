@@ -1,5 +1,6 @@
 package com.example.tp1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -20,6 +21,7 @@ public class Reservation {
      String idReservation;
      LocalDate anneeUniversitaire;
      boolean estValide;
+     @JsonIgnore
      @ManyToMany
      private List<Etudiant> etudiants;
 

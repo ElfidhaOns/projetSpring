@@ -61,5 +61,20 @@ public class ChambreServiceIMPL implements IchambreService {
         return chambreRepository.findByBlocIdBlocAndTypeC(idBloc,typeC);
     }
 
+    @Override
+    public List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC) {
+        return chambreRepository.findByBlocIdBlocAndTypeC(idBloc, typeC);
+    }
+
+    @Override
+    public List<Chambre> getChambresParNomUniversite(String nomUniversite) {
+        return chambreRepository.getChambresParNomUniversite(nomUniversite);
+    }
+
+    @Override
+    public List<Chambre> getChambresParNomUniversite2(String nomUniversite) {
+        return chambreRepository.findChambreByBlocFoyerUniversiteNomUniversite(nomUniversite);
+    }
+
 
 }
