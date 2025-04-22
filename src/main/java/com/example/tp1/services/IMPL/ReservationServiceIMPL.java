@@ -7,6 +7,7 @@ import com.example.tp1.repository.FoyerRepository;
 import com.example.tp1.repository.ReservationRepository;
 import com.example.tp1.services.interfaces.IreservationService;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -86,5 +87,15 @@ public class ReservationServiceIMPL implements IreservationService {
 
     }
 
+    @Override
+        public List<Chambre> findNonReservedChambres(LocalDate anneUniversitaire) {
+            return reservationRepository.findNonReservedChambres(anneUniversitaire);
+        }
 
+@Scheduled(cron="*/10 * * * * *")
+    public void afficher(){
+        LocalDate d =LocalDate.now();
+            List <Chambre> ch=findNonReservedChambres(d);
+            ch.forEach(c->System.out.println("chambre dispo "+c.getIdChambre()));
+}
 }

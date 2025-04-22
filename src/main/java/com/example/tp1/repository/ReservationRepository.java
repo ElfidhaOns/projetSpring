@@ -1,5 +1,6 @@
 package com.example.tp1.repository;
 
+import com.example.tp1.entity.Chambre;
 import com.example.tp1.entity.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,5 +22,13 @@ public interface ReservationRepository extends JpaRepository<Reservation,String>
    List<Reservation> findByAnneeUniversitaireAndNomUniversite
            (@Param("anneeUniversitaire") LocalDate anneeUniversitaire,
             @Param("nomUniversite") String nomUniversite);
+
+   @Query("SELECT c FROM Chambre c " +
+           "LEFT JOIN c.reservations r " +
+           "WHERE r.idReservation IS NULL " +
+           "OR (r.anneeUniversitaire <> :anneUniversitaire)")
+   List<Chambre> findNonReservedChambres(@Param("anneUniversitaire") LocalDate anneUniversitaire);
+
+
 
 }
